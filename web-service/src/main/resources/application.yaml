@@ -1,0 +1,31 @@
+server:
+    port: 5438           #**********  端口号
+web:
+    filePath: "out.txt"
+    rootPath: "D:/桌面/学习记录/翻译/"
+    translate: "translate.txt"
+    isTranslate: true # 认为true就是翻译中文  false就是把翻译的去掉
+
+spring:
+    datasource:
+        url: jdbc:mysql://127.0.0.1:3306/oqoqbobo?useSSL=false&useUnicode=true&characterEncoding=utf8
+        username: root
+        password: root
+        driver-class-name: com.mysql.cj.jdbc.Driver
+    main:
+        allow-circular-references: true # 解决依赖循环导致报错问题
+mybatis:
+    type-aliases-package: com.oqoqbobo.web.model
+    mapper-locations:
+        - classpath*:mapper/**/*.xml
+        - classpath*:com/data/mapper/*.xml
+    configuration:
+        database-id: mysql  # mysql, oracle
+        map-underscore-to-camel-case: true  # 下划线转驼峰命名
+        call-setters-on-nulls: true
+        log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+pagehelper:
+    supportMethodsArguments: true
+    params: count=countSql
+    helper-dialect: mysql
+    reasonable: false

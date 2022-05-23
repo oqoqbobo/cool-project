@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE generatorConfiguration PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd" >
+<!--
+    生成数据库表对应文件说明：
+    1、配置生成的表
+    2、执行类 GeneratorSqlmapMain
+-->
+<generatorConfiguration>
+    <!-- 配置一个代码生成操作，如果生成的目录或是数据库不一样，只需要参考增加一个context节点即可 -->
+    <context id="testTables" defaultModelType="flat" targetRuntime="MyBatis3">
+        <!-- 生成的 Java 文件的编码 -->
+        <property name="javaFileEncoding" value="UTF-8"/>
+        <!-- 格式化 Java 代码 -->
+        <property name="javaFormatter" value="org.mybatis.generator.api.dom.DefaultJavaFormatter"/>
+        <!-- 格式化 XML 代码 -->
+        <property name="xmlFormatter" value="org.mybatis.generator.api.dom.DefaultXmlFormatter"/>
+        <!-- 自动为entity生成swagger2文档   引入github的插件具体看https://github.com/495804928/mybatis-generator-plugins -->
+        <plugin type="mybatis.generator.plugins.GeneratorSwagger2Doc">
+            <property name="apiModelAnnotationPackage" value="io.swagger.annotations.ApiModel"/>
+            <property name="apiModelPropertyAnnotationPackage" value="io.swagger.annotations.ApiModelProperty"/>
+        </plugin>
+        <!--  新的XML文件覆盖旧的XML文件  从Mybatis-generator 1.3.7开始支持     -->
+        <plugin type="org.mybatis.generator.plugins.UnmergeableXmlMappersPlugin"/>
+        <plugin type="org.mybatis.generator.plugins.ToStringPlugin"/>
+        <!-- 生成的pojo，将implements Serializable-->
+        <!--<plugin type="org.mybatis.generator.plugins.SerializablePlugin"></plugin>-->
+        <!-- 这里的type里写的是你的实现类的类全路径,注：如果不配置type属性,则会使用默认的CommentGenerator实现类 -->
+        <commentGenerator>
+            <!--https://segmentfault.com/a/1190000010553404-->
+            <!-- 是否禁止显示日期 true：是 ： false:否 -->
+            <property name="suppressDate" value="false"/>
+            <!-- 是否去除自动生成的所有注释 true：是 ： false:否 -->
+            <property name="suppressAllComments" value="true"/>
+            <!-- 是否添加字段注释 true:是 false：否 -->
+            <property name="addRemarkComments" value="true"/>
+            <!-- 自定义属性 作者名称 -->
+            <property name="author" value="chenxin"/>
+            <!--<property name="javaFileEncoding" value="UTF-8" />-->
+        </commentGenerator>
+        <!-- 配置数据库，driverClass请根据所使用的数据库配置 -->
+        <jdbcConnection driverClass="com.mysql.jdbc.Driver"
+                        connectionURL="jdbc:mysql://127.0.0.1:3306/oqoqbobo?useSSL=false&amp;useUnicode=true&amp;characterEncoding=utf8"
+                        userId="root"
+                        password="root">
+        </jdbcConnection>
+        <!-- 默认false，把JDBC DECIMAL 和 NUMERIC 类型解析为 Integer，为 true时把JDBC DECIMAL 和 NUMERIC 类型解析为java.math.BigDecimal -->
+        <javaTypeResolver>
+            <property name="forceBigDecimals" value="true"/>
+        </javaTypeResolver>
+        <!-- 配置实体类、example类生成的路径 -->
+        <javaModelGenerator targetPackage="com.data.model" targetProject="..\web-res\src\main\java">
+            <!-- enableSubPackages:是否让schema作为包的后缀 -->
+            <property name="enableSubPackages" value="false"/>
+            <!-- 从数据库返回的值被清理前后的空格 -->
+            <property name="trimStrings" value="true"/>
+        </javaModelGenerator>
+
+        <!-- 配置mapper.xml文件生成的路径(注：此处的targetPackage只要在base/mybatis/后面设置上面类文件包路径中最后一个名称就可以了) -->
+        <!--<sqlMapGenerator targetPackage="mapper" targetProject=".\src\main\resources" >-->
+        <sqlMapGenerator targetPackage="com.data.mapper" targetProject="..\web-res\src\main\java">
+            <!-- enableSubPackages:是否让schema作为包的后缀 -->
+            <property name="enableSubPackages" value="false"/>
+        </sqlMapGenerator>
+        <!--
+               配置mapper接口生成的路径, 此处必须配置在javaModelGenerator和sqlMapGenerator后面,不然会报错
+               并且为生成的接口添加一个父接口,此处配置的父接口多一个下划线,
+               以备生成后提示错误以引导手动去完成正确的接口继承(继承BaseMapper并且将泛型类设置为对应的实体类、example类,并且删除生成的方法)
+        -->
+        <javaClientGenerator targetPackage="com.data.mapper" type="XMLMAPPER"
+                             targetProject="..\web-res\src\main\java">
+            <!-- enableSubPackages:是否让schema作为包的后缀 -->
+            <property name="enableSubPackages" value="false"/>
+        </javaClientGenerator>
+
+        <!-- 指定数据库表 -->
+        <table tableName="sec_dict_type">
+            <generatedKey column="id" sqlStatement="MySql" identity="true"/>
+        </table>
+
+    </context>
+</generatorConfiguration>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/cool-project.iml" filepath="$PROJECT_DIR$/cool-project.iml" />
+      <module fileurl="file://$PROJECT_DIR$/spring-mybatis-create/spring-mybatis-create.iml" filepath="$PROJECT_DIR$/spring-mybatis-create/spring-mybatis-create.iml" />
+      <module fileurl="file://$PROJECT_DIR$/spring-mybatis-create/spring-mybatis-create.iml" filepath="$PROJECT_DIR$/spring-mybatis-create/spring-mybatis-create.iml" />
+      <module fileurl="file://$PROJECT_DIR$/web-res/web-res.iml" filepath="$PROJECT_DIR$/web-res/web-res.iml" />
+      <module fileurl="file://$PROJECT_DIR$/web-res/web-res.iml" filepath="$PROJECT_DIR$/web-res/web-res.iml" />
+      <module fileurl="file://$PROJECT_DIR$/web-service/web-service.iml" filepath="$PROJECT_DIR$/web-service/web-service.iml" />
+      <module fileurl="file://$PROJECT_DIR$/web-service/web-service.iml" filepath="$PROJECT_DIR$/web-service/web-service.iml" />
+    </modules>
+  </component>
+</project>
