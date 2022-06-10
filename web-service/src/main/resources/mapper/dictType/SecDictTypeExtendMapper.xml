@@ -7,6 +7,12 @@
           DATE_FORMAT(sdt.create_time,'%Y-%m-%d %H:%i:%s') AS create_time_str,
           DATE_FORMAT(sdt.update_time,'%Y-%m-%d %H:%i:%s') AS update_time_str
          FROM sec_dict_type sdt
+         <where>
+             <if test="id != null and id != ''">
+                 sdt.type_id = #{id}
+             </if>
+         </where>
+         ORDER BY type_id DESC
     </select>
 
 </mapper>

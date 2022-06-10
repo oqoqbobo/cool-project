@@ -7,4 +7,7 @@ import java.util.List;
 
 public interface SecDictTypeService {
     List<DictTypeVO> queryList(DictTypePO po);
+    DictTypeVO queryById(Long id);
+
+    void update(Long id) throws Exception;
 }

@@ -130,6 +130,24 @@
             <artifactId>pagehelper</artifactId>
             <version>5.1.4</version>
         </dependency>
+        <!-- https://mvnrepository.com/artifact/io.github.yinjiangyue/operation-log-boot-starter -->
+        <dependency>
+            <groupId>io.github.yinjiangyue</groupId>
+            <artifactId>operation-log-boot-starter</artifactId>
+            <version>1.1.2</version>
+        </dependency>
+        <!--如果引用时报NoSuchMethod转换错误，可以引用这个包-->
+        <dependency>
+            <groupId>org.apache.httpcomponents</groupId>
+            <artifactId>httpclient</artifactId>
+            <version>4.5.13</version>
+        </dependency>
+        <!--如果引用时报ES的客户端错误，可以引用这个包-->
+        <dependency>
+            <groupId>jakarta.json</groupId>
+            <artifactId>jakarta.json-api</artifactId>
+            <version>2.1.0</version>
+        </dependency>
 
     </dependencies>
 

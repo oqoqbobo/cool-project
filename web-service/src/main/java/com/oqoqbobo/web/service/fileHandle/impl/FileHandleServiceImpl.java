@@ -4,16 +4,19 @@ import com.data.mapper.SecDictTypeMapper;
 import com.data.model.SecDictType;
 import com.data.model.SecDictTypeExample;
 import com.oqoqbobo.web.data.CheckUtils;
+import com.oqoqbobo.web.data.MyException;
 import com.oqoqbobo.web.model.returnPojo.FileChineseVO;
 import com.oqoqbobo.web.model.returnPojo.FileInfoVO;
 import com.oqoqbobo.web.service.fileHandle.FileHandleService;
-import org.apache.commons.lang3.StringUtils;
+import com.oqoqbobo.web.utils.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 import javax.servlet.http.HttpServletResponse;
 import java.io.*;
+import java.math.BigDecimal;
+import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
 import java.util.*;
 import java.util.stream.Collectors;
@@ -1054,11 +1057,19 @@ public class FileHandleServiceImpl implements FileHandleService {
             }*/
 
     }
+    public static String setValueStr(double obj, String pattern){
+        if (pattern == null || "".equals(pattern)) {
+            pattern = "#,###.000";  //323,333,355.334
+        }
+        DecimalFormat format = new DecimalFormat(pattern);
+        return format.format(new BigDecimal(obj));
+    }
 
     // -------------------------------------------|----------------------------------------------------------
     //****************************************** ↓
     //main方法，及时测试各种方法
-    public static void  main(String [] args){
-
+    public static void  main(String [] args) throws MyException {
+        String aaaaCaaddJJld = StringUtils.camelToUnderline("aaa_aa");
+        System.out.println(aaaaCaaddJJld);
     }
 }

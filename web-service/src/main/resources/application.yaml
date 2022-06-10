@@ -29,3 +29,10 @@ pagehelper:
     params: count=countSql
     helper-dialect: mysql
     reasonable: false
+
+operation-log:
+    host-name: 121.5.52.88
+    port: 9200
+    index-name: xc-logs
+    user-name: elastic
+    password: qwe45678
