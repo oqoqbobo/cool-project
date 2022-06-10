@@ -123,6 +123,7 @@ public class SqlInterceptor implements Interceptor {
                     .stream()
                     .filter(StringUtils::isNotBlank)
                     .collect(Collectors.toList());
+
             String first = StringUtils.camelToUnderline(column.get(0));
             if(column.size()>1){
                 sb.append(" TEMP.").append(first).append(" ").append(column.get(1)).append(",");
